@@ -1,7 +1,11 @@
 class Strings {
     isPalyndrome (str) {
-        return str.toLowerCase().replaceAll(' ', '') === str.split('').reverse()
-                .join('').toLowerCase().replaceAll(' ', '')
+        const normalWord = str.toLowerCase().replaceAll(' ', '');
+        
+        const reversedWord = str.split('').reverse().join('').
+            toLowerCase().replaceAll(' ', '');
+
+        return normalWord === reversedWord
     }
 }
 
