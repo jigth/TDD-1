@@ -80,4 +80,30 @@ describe('Arithmetic', () => {
             expect(arithmetic.sub(-5, -5)).toBe(0)
         })
     })
+
+    describe('Division', () => {
+        it('divides 5/5 and gets 1', () => {
+            expect(arithmetic.div(5, 5)).toBe(1)
+        })
+
+        it('divides 35/5 and gets 7', () => {
+            expect(arithmetic.div(35, 5)).toBe(7)
+        })
+
+        it('divides 50000/5 and gets 10000', () => {
+            expect(arithmetic.div(50000, 5)).toBe(10000)
+        })
+
+        it('divides 50000/-5 and gets -10000', () => {
+            expect(arithmetic.div(50000, -5)).toBe(-10000)
+        })
+
+        it('divides -50000/10 and gets -5000', () => {
+            expect(arithmetic.div(-50000, 10)).toBe(-5000)
+        })
+
+        it('divides -50000/-10 and gets 5000', () => {
+            expect(arithmetic.div(-50000, -10)).toBe(5000)
+        })
+    })
 })

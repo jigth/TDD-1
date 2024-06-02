@@ -10,6 +10,10 @@ class Arithmetic {
     sub = (a, b) => {
         return a - b
     }
+
+    div = (a, b) => {
+        return a / b
+    }
 }
 
 
