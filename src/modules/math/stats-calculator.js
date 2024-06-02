@@ -32,6 +32,16 @@ class StatsCalculator {
     getCount (list) {
         return list.length
     }
+
+    getAverageValue (list) {
+        let avgValue = 0
+
+        for (let el of list) {
+            avgValue += el
+        }
+
+        return avgValue / this.getCount(list)
+    }
 }
 
 module.exports = {

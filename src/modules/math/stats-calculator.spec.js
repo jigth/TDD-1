@@ -69,8 +69,19 @@ describe('Stats calculator', () => {
     })
 
     describe('getAverageValue', () => {
+        it('Gets 8 from the list [6, 10, 8, 8, 8]', () => {
+            const list = [6, 10, 8, 8, 8]
+            expect(statsCalculator.getAverageValue(list)).toBe(8)
+        })
 
+        it('Gets 4.5 from the list [4, 5]', () => {
+            const list = [4, 5]
+            expect(statsCalculator.getAverageValue(list)).toBe(4.5)
+        })
+
+        it('Gets 3.2 from the list [5, 2, 6, 1, 2]', () => {
+            const list = [5, 2, 6, 1, 2]
+            expect(statsCalculator.getAverageValue(list)).toBe(3.2)
+        })
     })
 })
-
-// stats calculator: Without using math library functions process a sequence of integers to determine the following statistics: minimum value, maximum value, number of elements in the sequence, average value (arithmetic median)
