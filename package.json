@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest src/",
+    "test:watch": "jest --watch src/"
+  },
   "dependencies": {
+
+  },
+  "devDependencies": {
     "jest": "^29.7.0"
   }
 }
