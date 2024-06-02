@@ -28,6 +28,10 @@ class StatsCalculator {
 
         return maxValue
     }
+
+    getCount (list) {
+        return list.length
+    }
 }
 
 module.exports = {

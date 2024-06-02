@@ -41,8 +41,21 @@ describe('Stats calculator', () => {
         })
     })
 
-    describe('getElementsCount', () => {
-        
+    describe('getCount', () => {
+        it('Gets 5 from the list [1, 2, 3, 4, 5]', () => {
+            const list = [1, 2, 3, 4, 5]
+            expect(statsCalculator.getCount(list)).toBe(5)
+        })
+
+        it('Gets 2 from the list [55, 40]', () => {
+            const list = [55, 40]
+            expect(statsCalculator.getCount(list)).toBe(2)
+        })
+
+        it('Gets 0 from the list []', () => {
+            const list = []
+            expect(statsCalculator.getCount(list)).toBe(0)
+        })
     })
 
     describe('getAverageValue', () => {
