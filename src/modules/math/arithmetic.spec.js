@@ -54,4 +54,30 @@ describe('Arithmetic', () => {
             expect(arithmetic.mult(-20, -20)).toBe(400)
         })
     })
+
+    describe('Substraction', () => {
+        it('substracts 10-5 and gets 5', () => {
+            expect(arithmetic.sub(10, 5)).toBe(5)
+        })
+        
+        it('substracts 10-10 and gets 0', () => {
+            expect(arithmetic.sub(10, 10)).toBe(0)
+        })
+
+        it('substracts 1000-10 and gets 990', () => {
+            expect(arithmetic.sub(1000, 10)).toBe(990)
+        })
+
+        it('substracts 0-0 and gets 0', () => {
+            expect(arithmetic.sub(0, 0)).toBe(0)
+        })
+
+        it('substracts 5-(-5) and gets 10', () => {
+            expect(arithmetic.sub(5, -5)).toBe(10)
+        })
+
+        it('substracts -5-(-5) and gets 0', () => {
+            expect(arithmetic.sub(-5, -5)).toBe(0)
+        })
+    })
 })
