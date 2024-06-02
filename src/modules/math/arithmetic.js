@@ -1,12 +1,14 @@
-const sum = (a, b) => {
-    return a+b;
+class Arithmetic {
+    sum = (a, b) => {
+        return a+b;
+    }
+    
+    mult = (a, b) => {
+        return a * b
+    }
 }
 
-const mult = (a, b) => {
-    return a * b
-}
 
 module.exports = {
-    sum,
-    mult,
+    Arithmetic
 }
