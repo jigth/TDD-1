@@ -1,7 +1,7 @@
 const { Strings } = require('./strings')
 describe('Strings', () => {
     let strings
-    
+
     beforeEach(() => {
         strings = new Strings()
     })
@@ -16,5 +16,9 @@ describe('Strings', () => {
 
     it('test if "Daniel" is a palyndrome', () => {
         expect(strings.isPalyndrome('Daniel')).toBeFalsy()
+    })
+
+    it('test if "Ana se sana" is a palyndrome', () => {
+        expect(strings.isPalyndrome('Ana se sana')).toBeTruthy()
     })
 })

@@ -1,6 +1,7 @@
 class Strings {
     isPalyndrome (str) {
-        return str === str.split('').reverse().join('')
+        return str.toLowerCase().replaceAll(' ', '') === str.split('').reverse()
+                .join('').toLowerCase().replaceAll(' ', '')
     }
 }
 
