@@ -22,6 +22,11 @@ describe('Stats calculator', () => {
             let list = [28, 90, 13, 4, 0, 1, -15]
             expect(statsCalculator.getMinValue(list)).toBe(-15)
         })
+
+        it('gets 151515 from the list [151515]', () => {
+            let list = [151515]
+            expect(statsCalculator.getMinValue(list)).toBe(151515)
+        })
     })
 
     describe('getMaxValue', () => {
@@ -38,6 +43,11 @@ describe('Stats calculator', () => {
         it('gets -5 from the list [-5, -6, -7, -15, -21, -10]', () => {
             const list = [-5, -6, -7, -15, -21, -10]
             expect(statsCalculator.getMaxValue(list)).toBe(-5)
+        })
+
+        it('gets -99 from the list [-99]', () => {
+            const list = [-99]
+            expect(statsCalculator.getMaxValue(list)).toBe(-99)
         })
     })
 
