@@ -106,4 +106,24 @@ describe('Arithmetic', () => {
             expect(arithmetic.div(-50000, -10)).toBe(5000)
         })
     })
+
+    describe('Factorial', () => {
+        it('calculates fact(5) and gets 120', () => {
+            expect(arithmetic.fact(5)).toBe(120)
+        })
+
+        it('calculates fact(2) and gets 2', () => {
+            expect(arithmetic.fact(2)).toBe(2)
+        })
+
+        it('calculates fact(0) and gets 1', () => {
+            expect(arithmetic.fact(0)).toBe(1)
+        })
+
+        it('calculates fact(7) and gets 5040', () => {
+            expect(arithmetic.fact(7)).toBe(5040)
+        })
+
+        // TODO: Add error test here, I didn't add it for now because of lack of internet connection.
+    })
 })

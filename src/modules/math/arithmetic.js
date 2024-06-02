@@ -14,6 +14,11 @@ class Arithmetic {
     div = (a, b) => {
         return a / b
     }
+
+    fact = (n) => {
+        if (n == 1 | n == 0) return 1
+        return n * this.fact(n-1)
+    }
 }
 
 
