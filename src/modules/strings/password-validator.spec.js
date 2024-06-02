@@ -28,20 +28,6 @@ describe('Password Validator', () => {
         expect(passwordValidator.check(password).result).toBeFalsy()
     })
 
-    it('shows "password too short" error when it has less than 5 characters', () => {
-        const password = "ok3i"
-        const validation = passwordValidator.check(password)
-        const hasExpectedError = validation.errors.some(err => err.includes("password too short"))
-        expect(hasExpectedError).toBeTruthy()
-    })
-
-    it('shows "password too long" error when it has more than 15 characters', () => {
-        const password = "ok3iSuperHyperLongPwd"
-        const validation = passwordValidator.check(password)
-        const hasExpectedError = validation.errors.some(err => err.includes("password too long"))
-        expect(hasExpectedError).toBeTruthy()
-    })
-
     it('approves the password "ok3y Dokey" as it has at least one digit', () => {
         const password = "ok3y Dokey"
         expect(passwordValidator.check(password)).toBeTruthy()
@@ -70,9 +56,33 @@ describe('Password Validator', () => {
     })
 
     it('returns an object with an array "errors" key', () => {
-        const password = "generIc p4d"
-        const checkResult = passwordValidator.check(password)
+        const checkResult = passwordValidator.check("generIc p4d")
         expect(typeof checkResult).toBe('object')
         expect(checkResult).toHaveProperty('errors')
+    })
+
+    it('shows "password too short" error when it has less than 5 characters', () => {
+        const validation = passwordValidator.check("ok3i")
+        expect(validation.errors[0]).toMatch(/.*password too short.*/)
+    })
+
+    it('shows "password too long" error when it has more than 15 characters', () => {
+        const validation = passwordValidator.check("ok3iSuperHyperLongPwd")
+        expect(validation.errors[0]).toMatch(/.*password too long.*/)
+    })
+
+    it('shows "password should have at least 1 digit" error for password "OkeyPass', () => {
+        const validation = passwordValidator.check("OkeyPass")
+        expect(validation.errors[0]).toMatch(/.*password should have at least 1 digit.*/)
+    })
+
+    it('shows "password should have at least 1 uppercase character" error for password "okeypass', () => {
+        const validation = passwordValidator.check("okeypass")
+        expect(validation.errors).toContain("password should have at least 1 uppercase character")
+    })
+
+    it('shows multiple error messages for password "wrongpasswd"', () => {
+        const validation = passwordValidator.check("wrongpasswd")
+        expect(validation.errors.length).toBeGreaterThan(1)
     })
 })
