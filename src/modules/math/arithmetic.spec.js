@@ -126,4 +126,26 @@ describe('Arithmetic', () => {
 
         // TODO: Add error test here, I didn't add it for now because of lack of internet connection.
     })
+
+    describe('Fibonacci', () => {
+        it('calculates fib(0) and gets 1', () => {
+            expect(arithmetic.fib(0)).toBe(1)
+        })
+
+        it('calculates fib(1) and gets 1', () => {
+            expect(arithmetic.fib(1)).toBe(1)
+        })
+
+        it('calculates fib(2) and gets 2', () => {
+            expect(arithmetic.fib(2)).toBe(2)
+        })
+
+        it('calculates fib(4) and gets 5', () => {
+            expect(arithmetic.fib(4)).toBe(5)
+        })
+
+        it('calculates fib(7) and gets 21', () => {
+            expect(arithmetic.fib(7)).toBe(21)
+        })
+    })
 })
