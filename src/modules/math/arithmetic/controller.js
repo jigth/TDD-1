@@ -66,6 +66,37 @@ class ArithmeticController {
             })
         })
 
+        router.get(`${this.path}/mult`, (req, res) => {
+
+            const query = req.query
+            
+            if (!query || !query.a || !query.b) {
+                res.status(400).send({
+                    error: 'query params "a" and "b" are required'
+                })
+                return
+            }
+
+            // Input Validation
+            let a
+            let b
+
+            try {
+                a = parseFloat(query.a)
+                b = parseFloat(query.b)
+            } catch (err) {
+                res.status(400).send({
+                    error: 'query params "a" and "b" should be numbers'
+                })
+                return
+            }
+
+            const result = Arithmetic.mult(a, b)
+            res.status(200).send({
+                result
+            })
+        })
+
         this.router = router
     }
 }
