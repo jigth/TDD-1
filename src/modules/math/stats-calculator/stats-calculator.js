@@ -1,5 +1,5 @@
 class StatsCalculator {
-    getMinValue (list) {
+    static getMinValue (list) {
         let minValue
 
         for (let el of list) {
@@ -14,7 +14,7 @@ class StatsCalculator {
         return minValue
     }
 
-    getMaxValue (list) {
+    static getMaxValue (list) {
         let maxValue
 
         for (let el of list) {
@@ -29,11 +29,11 @@ class StatsCalculator {
         return maxValue
     }
 
-    getCount (list) {
+    static getCount (list) {
         return list.length
     }
 
-    getAverageValue (list) {
+    static getAverageValue (list) {
         let avgValue = 0
 
         for (let el of list) {

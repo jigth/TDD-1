@@ -1,5 +1,5 @@
 class Strings {
-    isPalyndrome (str) {
+    static isPalyndrome (str) {
         const normalWord = str.toLowerCase().replaceAll(' ', '');
         
         const reversedWord = str.split('').reverse().join('').
