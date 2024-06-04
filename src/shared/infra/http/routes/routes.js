@@ -1,7 +1,7 @@
 const { Router } = require('express')
 
 // Import controllers
-const { ArithmeticController } = require("../../../../modules/math/arithmetic/controller")
+const { ArithmeticController } = require("../../../../modules/math/arithmetic/arithmetic.controller")
 
 const appRoutes = Router()
 
