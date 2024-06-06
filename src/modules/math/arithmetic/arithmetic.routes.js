@@ -169,10 +169,21 @@ const getArithmeticRouter = (mountPath) => {
             return
         }
         
-        const result = Arithmetic.fact(n)
-        res.status(200).send({
-            result
-        })
+        try {
+            const result = Arithmetic.fact(n)
+            res.status(200).send({
+                result
+            })
+        } catch (err) {
+            if (err.message.includes('Cannot calculate factorial')) {
+                res.status(400).send({
+                    msg: "Out of range input",
+                    error: err.message
+                })
+
+                return
+            }
+        }
     })
 
     router.get(`${mountPath}/fibonacci`, (req, res) => {
@@ -187,11 +198,29 @@ const getArithmeticRouter = (mountPath) => {
             })
             return
         }
-        
-        const result = Arithmetic.fib(n)
-        res.status(200).send({
-            result
-        })
+
+        try {
+            const result = Arithmetic.fib(n)
+            res.status(200).send({
+                result
+            })
+        } catch (err) {
+
+            if (err.message.includes('Cannot calculate fibonacci')) {
+                res.status(400).send({
+                    msg: "Out of range input",
+                    error: err.message
+                })
+
+                return
+            }
+
+            res.status(500).send({
+                msg: "Server error",
+                err
+            })
+        }
+
     })
 
     return router
