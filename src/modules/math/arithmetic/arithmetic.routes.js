@@ -48,10 +48,34 @@ const validateArithmeticInputs = (req, isDivision = false) => {
 
 }
 
+const validateIntNumberInput = (req) => {
+    const query = req.query
+    
+    try {
+        const n = query.n;
+        return {
+            n: parseInt(n),
+            error: null,
+        }
+            
+    } catch (err) {
+        console.log(err)
+
+        return {
+            n: null,
+            error: {
+                statusCode: 400,
+                msg: '"n" is required and should be an integer number',
+                type: "inputError",
+            }
+        }
+    }
+}
 
 const getArithmeticRouter = (mountPath) => {
     const router = Router()
 
+    // Basic Arithmetic Operations
     router.get(`${mountPath}/sum`, (req, res) => {
 
         const { inputs, errors } = validateArithmeticInputs(req)
@@ -127,6 +151,44 @@ const getArithmeticRouter = (mountPath) => {
         const { a, b } = inputs
 
         const result = Arithmetic.div(a, b)
+        res.status(200).send({
+            result
+        })
+    })
+    // Mathematic (more complex) Arithmetic Operations
+    router.get(`${mountPath}/factorial`, (req, res) => {
+
+        const { n, error } = validateIntNumberInput(req)
+
+        if (error !== null) {
+            req.status(error.statusCode).send({ 
+                msg: "Error while validating inputs",
+                error: error.msg,
+                type: error.type,
+            })
+            return
+        }
+        
+        const result = Arithmetic.fact(n)
+        res.status(200).send({
+            result
+        })
+    })
+
+    router.get(`${mountPath}/fibonacci`, (req, res) => {
+
+        const { n, error } = validateIntNumberInput(req)
+
+        if (error !== null) {
+            req.status(error.statusCode).send({ 
+                msg: "Error while validating inputs",
+                error: error.msg,
+                type: error.type,
+            })
+            return
+        }
+        
+        const result = Arithmetic.fib(n)
         res.status(200).send({
             result
         })
