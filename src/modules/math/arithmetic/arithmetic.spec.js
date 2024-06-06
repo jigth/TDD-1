@@ -123,8 +123,8 @@ describe('Arithmetic', () => {
     })
 
     describe('Fibonacci', () => {
-        it('calculates fib(0) and gets 1', () => {
-            expect(Arithmetic.fib(0)).toBe(1)
+        it('calculates fib(0) and gets 0', () => {
+            expect(Arithmetic.fib(0)).toBe(0)
         })
 
         it('calculates fib(1) and gets 1', () => {
@@ -132,15 +132,15 @@ describe('Arithmetic', () => {
         })
 
         it('calculates fib(2) and gets 2', () => {
-            expect(Arithmetic.fib(2)).toBe(2)
+            expect(Arithmetic.fib(2)).toBe(1)
         })
 
         it('calculates fib(4) and gets 5', () => {
-            expect(Arithmetic.fib(4)).toBe(5)
+            expect(Arithmetic.fib(4)).toBe(3)
         })
 
-        it('calculates fib(7) and gets 21', () => {
-            expect(Arithmetic.fib(7)).toBe(21)
+        it('calculates fib(7) and gets 13', () => {
+            expect(Arithmetic.fib(7)).toBe(13)
         })
     })
 
