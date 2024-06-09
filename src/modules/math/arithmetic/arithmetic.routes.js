@@ -41,7 +41,7 @@ const validateArithmeticInputs = (req, isDivision = false) => {
         errors.push({
             statusCode: 422,
             error: '"b" should not be zero when using division',
-            type: 'inputDivisionError'
+            type: 'zeroDivisionError'
         })
     }
 
