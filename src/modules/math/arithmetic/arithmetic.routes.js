@@ -24,6 +24,10 @@ const validateArithmeticInputs = (req, isDivision = false) => {
     try {
         a = parseFloat(query.a)
         b = parseFloat(query.b)
+
+        if (isNaN(a) || isNaN(b)) {
+            throw new Error('query params "a" and "b" should be numbers')
+        }
     } catch (err) {
         errors.push({
             statusCode: 400,
@@ -74,19 +78,18 @@ const validateIntNumberInput = (req) => {
 
 const handleSum = (req, res) => {
     const { inputs, errors } = validateArithmeticInputs(req)
-
+    
     if (errors.length > 0) {
-        res.status(errors[0].statusCode).send({
+        return res.status(errors[0].statusCode).send({
             msg: "Invalid input, please check the following errors",
             errors,
         })
-        return
     }
 
     const { a, b } = inputs
     const result = Arithmetic.sum(a, b)
     
-    res.status(200).send({
+    return res.status(200).send({
         result
     })
 }
