@@ -6,7 +6,7 @@ const validateArithmeticInputs = (req, isDivision = false) => {
     const query = req.query
     const errors = []
 
-    if (!query || !query.a || !query.b) {
+    if (!query || query.a === undefined || query.b === undefined) {
         return {
             input: { a: null, b: null },
             errors: [{
