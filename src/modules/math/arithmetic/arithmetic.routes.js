@@ -98,17 +98,17 @@ const handleMult = (req, res) => {
     const { inputs, errors } = validateArithmeticInputs(req)
 
     if (errors.length > 0) {
-        res.status(errors[0].statusCode).send({
+        return res.status(errors[0].statusCode).send({
             msg: "Invalid input, please check the following errors",
             errors,
         })
-        return
     }
 
     const { a, b } = inputs
 
     const result = Arithmetic.mult(a, b)
-    res.status(200).send({
+    
+    return res.status(200).send({
         result
     })
 }
@@ -117,17 +117,17 @@ const handleSub = (req, res) => {
     const { inputs, errors } = validateArithmeticInputs(req)
 
     if (errors.length > 0) {
-        res.status(errors[0].statusCode).send({
+        return res.status(errors[0].statusCode).send({
             msg: "Invalid input, please check the following errors",
             errors,
         })
-        return
     }
 
     const { a, b } = inputs
 
     const result = Arithmetic.sub(a, b)
-    res.status(200).send({
+    
+    return res.status(200).send({
         result
     })
 }
@@ -137,17 +137,17 @@ const handleDiv = (req, res) => {
     const { inputs, errors } = validateArithmeticInputs(req, true)
 
     if (errors.length > 0) {
-        res.status(errors[0].statusCode).send({
+        return res.status(errors[0].statusCode).send({
             msg: "Invalid input, please check the following errors",
             errors,
         })
-        return
     }
 
     const { a, b } = inputs
 
     const result = Arithmetic.div(a, b)
-    res.status(200).send({
+    
+    return res.status(200).send({
         result
     })
 }
